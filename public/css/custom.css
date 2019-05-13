@@ -1,0 +1,29 @@
+.jumbotron{
+    background-image: url("http://buckinspire.com/wp-content/uploads/2014/10/vacation_time-1494435.jpg"); 
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 0px;
+}
+
+footer {
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30px; /* Set the fixed height of the footer here */
+    line-height: 20px; /* Vertically center the text there */
+}
+
+.foot-style{
+    color: lightgray;
+    padding-top: 10px;
+}
+
+.foot-link{
+    color: lightgray;
+}
+
+.foot-link:hover{
+    color: white;
+    text-decoration: none;
+}
