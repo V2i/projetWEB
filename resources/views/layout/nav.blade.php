@@ -58,10 +58,10 @@
                 <div class="collapse navbar-collapse" id="navbarToggler">
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Connexion</a>
+                        <a class="nav-link" href="{{route('home')}}">Connexion</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Inscription</a>
+                        <a class="nav-link" href="{{ route('register') }}">Inscription</a>
                         </li>
                     </ul>
                 </div>
