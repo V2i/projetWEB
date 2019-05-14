@@ -38,4 +38,7 @@ body {
 
 .main-container{
     margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
 }
