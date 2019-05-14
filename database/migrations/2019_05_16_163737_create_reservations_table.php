@@ -14,17 +14,18 @@ class CreateReservationsTable extends Migration
     public function up()
     {
         Schema::create('reservations', function (Blueprint $table) {
-            $table->bigIncrements('id');
             $table->integer('maison_id')->unsigned();
+            $table->foreign('maison_id')->references('id')->on('maisons');
             $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->increments('id');
             $table->date('date_debut');
             $table->date('date_fin');
         });
 
-        Schema::table('reservations', function (Blueprint $table) {
-            $table->foreign('maison_id')->references('id')->on('maison');
-            $table->foreign('user_id')->references('id')->on('user');
-        });
+        // Schema::table('reservations', function (Blueprint $table) {
+        //     
+        // });
     }
 
     /**

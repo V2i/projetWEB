@@ -14,15 +14,16 @@ class CreatePhotosTable extends Migration
     public function up()
     {
         Schema::create('photos', function (Blueprint $table) {
-            $table->bigIncrements('id');
             $table->integer('maison_id')->unsigned();
+            $table->foreign('maison_id')->references('id')->on('maisons');
+            $table->increments('id');
             $table->string('url');
             $table->string('description');
         });
 
-        Schema::table('photos', function (Blueprint $table) {
-            $table->foreign('maison_id')->references('id')->on('maison');
-        });
+        // Schema::table('photos', function (Blueprint $table) {
+        //     
+        // });
     }
 
     /**

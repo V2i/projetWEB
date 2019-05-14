@@ -14,15 +14,16 @@ class CreateCommentairesTable extends Migration
     public function up()
     {
         Schema::create('commentaires', function (Blueprint $table) {
-            $table->bigIncrements('id');
             $table->integer('reservation_id')->unsigned();
+            $table->foreign('reservation_id')->references('id')->on('reservations');
+            $table->increments('id');
             $table->text('description');
             $table->timestamps();
         });
 
-        Schema::table('commentaires', function (Blueprint $table) {
-            $table->foreign('reservation_id')->references('id')->on('reservation');
-        });
+        // Schema::table('commentaires', function (Blueprint $table) {
+        //     
+        // });
     }
 
     /**
