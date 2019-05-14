@@ -1,5 +1,5 @@
 .jumbotron{
-    background-image: url("http://buckinspire.com/wp-content/uploads/2014/10/vacation_time-1494435.jpg"); 
+    background-image: url("http://buckinspire.com/wp-content/uploads/2014/10/vacation_time-1494435.jpg");
     background-size: cover;
     background-position: center;
     margin-bottom: 0px;
@@ -12,6 +12,10 @@ html {
 
 body {
     margin-bottom: 20px; /* Margin bottom by footer height */
+}
+
+.navbar {
+    margin-bottom: 20px;
 }
 
 .page-footer {
@@ -34,11 +38,4 @@ body {
 .foot-link:hover{
     color: white;
     text-decoration: none;
-}
-
-.main-container{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 10%;
-    margin-right: 10%;
 }
