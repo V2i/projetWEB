@@ -15,10 +15,13 @@ class CreateCommentairesTable extends Migration
     {
         Schema::create('commentaires', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->interger('reservation_id')->unsigned();
-            $table->foreign('reservation_id')->references('id')->on('reservation');
+            $table->integer('reservation_id')->unsigned();
             $table->text('description');
             $table->timestamps();
+        });
+
+        Schema::table('commentaires', function (Blueprint $table) {
+            $table->foreign('reservation_id')->references('id')->on('reservation');
         });
     }
 

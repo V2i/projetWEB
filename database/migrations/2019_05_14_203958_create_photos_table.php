@@ -15,10 +15,13 @@ class CreatePhotosTable extends Migration
     {
         Schema::create('photos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->interger('maison_id')->unsigned();
-            $table->foreign('maison_id')->references('id')->on('maison');
+            $table->integer('maison_id')->unsigned();
             $table->string('url');
             $table->string('description');
+        });
+
+        Schema::table('photos', function (Blueprint $table) {
+            $table->foreign('maison_id')->references('id')->on('maison');
         });
     }
 
