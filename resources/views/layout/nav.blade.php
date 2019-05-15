@@ -57,6 +57,14 @@
             <a class="navbar-brand" href="{{route('welcome')}}"><i class="fas fa-home"></i>House4you</a>
 
                 <div class="collapse navbar-collapse" id="navbarToggler">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                                <a class="nav-link" href="{{ route('house') }}">Maisons</a>
+                        </li>
+                        <li class="nav-item">
+                                <a class="nav-link" href="{{ route('photo') }}">Photo</a>
+                        </li>
+                    </ul>
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                         @guest
                             <li class="nav-item">
@@ -70,7 +78,7 @@
                         @else
                             <li class="nav-item">
                                 <a  class="nav-link" href="{{route('home')}}">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->prenom }} <span class="caret"></span>
                                 </a>
                             </li>
                             <li class="nav-item">
