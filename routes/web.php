@@ -19,7 +19,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/house', 'MaisonsController@index')->name('house');
+
 Route::resource('comment','CommentairesController');
-Route::resource('house','MaisonsController');
 Route::resource('reservation','ReservationsController');
-Route::resource('picture','PhotosController');
+
+Route::middleware('admin')->group(function(){
+
+    Route::get('/picture', 'PhotosController@index')->name('photo');
+
+});
+
