@@ -98,6 +98,7 @@
         </header>
         <!-- main section-->
         <main>
+            @include('flash-message')
             @yield('content')
         </main>
         <!-- Footer -->
