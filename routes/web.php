@@ -23,10 +23,14 @@ Route::get('/house', 'MaisonsController@index')->name('house');
 
 Route::resource('comment','CommentairesController');
 Route::resource('reservation','ReservationsController');
+Route::get('/house/create', function(){
+    return view('houseForm');
+})->name('house/create');
 
 Route::middleware('admin')->group(function(){
 
     Route::get('/picture', 'PhotosController@index')->name('photo');
+    
 
 });
 

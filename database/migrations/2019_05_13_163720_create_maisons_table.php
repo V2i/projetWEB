@@ -17,7 +17,7 @@ class CreateMaisonsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('adresse1');
-            $table->string('adresse2');
+            $table->string('adresse2')->nullable();
             $table->string('ville');
             $table->string('pays');
             $table->integer('prix_hors_saison');
@@ -25,6 +25,7 @@ class CreateMaisonsTable extends Migration
             $table->text('description');
             
         });
+
     }
 
     /**
