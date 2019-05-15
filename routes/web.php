@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
 
@@ -19,18 +19,22 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/house', 'MaisonsController@index')->name('house');
+Route::get('/house', 'MaisonsController@index')->name('houses');
+Route::get('/house/{id}', 'MaisonsController@show')->name('house');
 
 Route::resource('comment','CommentairesController');
 Route::resource('reservation','ReservationsController');
-Route::get('/house/create', function(){
-    return view('houseForm');
-})->name('house/create');
 
 Route::middleware('admin')->group(function(){
 
     Route::get('/picture', 'PhotosController@index')->name('photo');
+    Route::get('/hcreate', 'MaisonsController@create')->name('houseCreate');
+    Route::post('/house', 'MaisonsController@store')->name('hstore');
+
     
 
 });
 
+Route::fallback(function() {
+    return redirect()->route('welcome');
+});

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Maison;
 
 class MaisonsController extends Controller
 {
@@ -13,7 +14,7 @@ class MaisonsController extends Controller
      */
     public function index()
     {
-        return view('house');
+        return view('houseList');
     }
 
     /**
@@ -34,7 +35,22 @@ class MaisonsController extends Controller
      */
     public function store(Request $request)
     {
-        Maison::houseCreate();
+        
+        $request->validate([
+            'name' => ['bail', 'required', 'string', 'max:191'],
+            'adresse1' => ['bail', 'required', 'string', 'max:191'],
+            'adresse2' => ['bail', 'string', 'max:191'],
+            'ville' => ['bail', 'required', 'string', 'max:191'],
+            'pays' => ['bail', 'required', 'string', 'max:191'],
+            'prix_hors_saison' => ['bail', 'required', 'numeric'],
+            'prix_saison' => ['bail', 'required', 'numeric'],
+            'description' => ['bail', 'string', 'max:65535'],
+        ]);
+        $maison = Maison::houseCreate();
+        var_dump($maison);
+        return redirect()->route('house',[
+            'id' => $maison -> id,
+        ]);
     }
 
     /**
@@ -45,7 +61,10 @@ class MaisonsController extends Controller
      */
     public function show($id)
     {
-        //
+        $maison=Maison::find($id);
+        return  view('/house',[
+            'maison' => $maison,
+        ]);
     }
 
     /**

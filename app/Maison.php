@@ -9,8 +9,9 @@ class Maison extends Model
     protected $table = 'maisons';
     public $primaryKey = 'id';
     public $timestamps = false;
+    public $fillable = ['name', 'adresse1', 'adresse2', 'ville', 'pays', 'prix_hors_saison', 'prix_saison', 'description'];
 
-    public function houseCreate() {
+    public static function houseCreate() {
         return self::create([
             'name' => request('name'),
             'adresse1' => request('adresse1'),
