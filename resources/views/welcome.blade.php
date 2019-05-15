@@ -1,7 +1,7 @@
 @extends('layout.nav')
 
 @section('content')
-    <div class="container">
-        
+    <div class="container main-container">
+            
     </div>
 @endsection
