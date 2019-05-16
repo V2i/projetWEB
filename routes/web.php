@@ -28,8 +28,9 @@ Route::resource('reservation','ReservationsController');
 Route::middleware('admin')->group(function(){
 
     Route::get('/picture', 'PhotosController@index')->name('photo');
-    Route::get('/hcreate', 'MaisonsController@create')->name('houseCreate');
-    Route::post('/house', 'MaisonsController@store')->name('hstore');
+    Route::get('/house/create', 'MaisonsController@create')->name('houseCreate');
+    Route::post('/house', 'MaisonsController@store')->name('houseStore');
+    Route::post('/admin', 'HomeController@admin')->name('admin');
 
     
 

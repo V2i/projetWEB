@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Bienvenue {{ Auth::user()->name }} {{ Auth::user()->prenom }} !</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,8 +13,11 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
+                    @if(Auth::user()->admin === 1)
+                        <h2 class="display-5">Vous êtes connecté en tant qu'administrateur !</h2>
+                    @else
+                        <h2 class="display-5">Vous êtes connecté !</h2>
+                    @endif
                 </div>
             </div>
         </div>
