@@ -90,8 +90,12 @@ class AdminsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $user = User::find(request('id'))->update([
+            'admin' => 0,
+        ]);
+        
+        return redirect()->route('admin');
     }
 }

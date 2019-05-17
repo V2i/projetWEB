@@ -20,7 +20,7 @@ class Admin
         if(Auth::check() && User::isAdmin()){
             return $next($request);
         } else {
-            return redirect()->route('welcome');
+            return redirect()->away('https://www.youtube.com/watch?v=tEo9sqzX1lQ');
         }
         
     }

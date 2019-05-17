@@ -15,7 +15,9 @@ Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
 
-Auth::routes();
+Auth::routes([
+    'verify' => true
+]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -31,6 +33,7 @@ Route::middleware('admin')->group(function(){
     Route::post('/house', 'MaisonsController@store')->name('hstore');
     Route::get('/admin', 'AdminsController@index')->name('admin');
     Route::put('/admin', 'AdminsController@store')->name('adminstore');
+    Route::delete('/admin', 'AdminsController@destroy')->name('dadmin');
 });
 
 Route::fallback(function() {

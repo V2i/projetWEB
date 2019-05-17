@@ -54,7 +54,13 @@
                                     <td>{{ $admin -> prenom }}</td>
                                     <td>{{ $admin -> name }}</td>
                                     <td>{{ $admin -> email }}</td>
-                                    <td style="center"><i class="fas fa-trash-alt"></i></td>
+                                    <td>
+                                        <form method="POST" action="{{ route('dadmin', ['id' => $admin -> id]) }}">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-default"><i class="fas fa-trash-alt"></i></button>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
