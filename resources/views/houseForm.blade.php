@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Ajouter une maison') }}</div>
             
                         <div class="card-body">
-                            <form method="POST" action="{{ route('houseStore') }}">
+                            <form method="POST" action="{{ route('hstore') }}">
                                 @csrf
                                 <div class="form-group row">
                                     <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nom de la maison') }}</label>
@@ -37,7 +37,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="adresse2" class="col-md-4 col-form-label text-md-right">{{ __('Adresse complémantaire') }}</label>
+                                    <label for="adresse2" class="col-md-4 col-form-label text-md-right">{{ __('Adresse complémentaire') }}</label>
         
                                     <div class="col-md-6">
                                         <input id="adresse2" type="text" class="form-control @error('adresse2') is-invalid @enderror" name="adresse2" value="{{ old('adresse2') }}" autocomplete="adresse2">
@@ -102,12 +102,12 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="prix_saison" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
+                                    <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
         
                                     <div class="col-md-6">
-                                        <input id="prix_saison" type="text" class="form-control @error('prix_saison') is-invalid @enderror" name="description" value="{{ old('prix_saison') }}" autocomplete="prix_saison">
+                                        <input id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" autocomplete="description">
         
-                                        @error('prix_saison')
+                                        @error('description')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>

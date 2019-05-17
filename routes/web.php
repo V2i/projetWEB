@@ -19,21 +19,18 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/house', 'MaisonsController@index')->name('houses');
+Route::get('/houses', 'MaisonsController@index')->name('houses');
 Route::get('/house/{id}', 'MaisonsController@show')->name('house');
 
-Route::resource('comment','CommentairesController');
-Route::resource('reservation','ReservationsController');
+
 
 Route::middleware('admin')->group(function(){
 
     Route::get('/picture', 'PhotosController@index')->name('photo');
-    Route::get('/house/create', 'MaisonsController@create')->name('houseCreate');
-    Route::post('/house', 'MaisonsController@store')->name('houseStore');
-    Route::post('/admin', 'HomeController@admin')->name('admin');
-
-    
-
+    Route::get('/add', 'MaisonsController@create')->name('housecreate');
+    Route::post('/house', 'MaisonsController@store')->name('hstore');
+    Route::get('/admin', 'AdminsController@index')->name('admin');
+    Route::put('/admin', 'AdminsController@store')->name('adminstore');
 });
 
 Route::fallback(function() {

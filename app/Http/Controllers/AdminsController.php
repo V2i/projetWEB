@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Maison;
+use App\User;
 
-class MaisonsController extends Controller
+class AdminsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,10 @@ class MaisonsController extends Controller
      */
     public function index()
     {
-        $maisons = Maison::all();
+        $admins = User::where('admin', 1)->get();
 
-        return view('houseList', [
-            'houses' => $maisons,
+        return view('admin', [
+            'admins' => $admins,
         ]);
     }
 
@@ -28,7 +28,7 @@ class MaisonsController extends Controller
      */
     public function create()
     {
-        return view('houseForm');
+        
     }
 
     /**
@@ -40,20 +40,14 @@ class MaisonsController extends Controller
     public function store(Request $request)
     {
         $data = request()->validate([
-            'name' => ['bail', 'required', 'string', 'max:191'],
-            'adresse1' => ['bail', 'required', 'string', 'max:191'],
-            'adresse2' => ['bail', 'string', 'max:191', 'min:0'],
-            'ville' => ['bail', 'required', 'string', 'max:191'],
-            'pays' => ['bail', 'required', 'string', 'max:191'],
-            'prix_hors_saison' => ['bail', 'required', 'numeric'],
-            'prix_saison' => ['bail', 'required', 'numeric'],
-            'description' => ['bail', 'required', 'string', 'max:65535'],
+            'email' => ['bail', 'email', 'string', 'max:191'],
         ]);
-
-        $id = Maison::houseCreate() -> id;
-            return redirect()->route('house', [
-                'id' => $id,
-            ]);
+        
+        $user = User::where('email', request('email'))->update([
+            'admin' => 1,
+        ]);
+        
+        return redirect()->route('admin');
     }
 
     /**
@@ -64,10 +58,7 @@ class MaisonsController extends Controller
      */
     public function show($id)
     {
-        $maison=Maison::find($id);
-        return  view('house',[
-            'maison' => $maison,
-        ]);
+        //
     }
 
     /**
