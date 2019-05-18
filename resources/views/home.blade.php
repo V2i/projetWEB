@@ -18,19 +18,7 @@
                     @else
                         <h2 class="display-5">Vous êtes connecté !</h2>
                     @endif
-                    <form class="update-form">
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" id="name" value="{{ Auth::user()->name }}" placeholder="Nom">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" id="prenom" value="{{ Auth::user()->prenom }}" placeholder="Prenom">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" id="email" value="{{ Auth::user()->email }}" placeholder="Adresse mel.">
-                        </div>
-                    </form>
+                     
                 </div>
             </div>
         </div>

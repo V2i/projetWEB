@@ -44,7 +44,7 @@ class MaisonsController extends Controller
         $data = request()->validate([
             'name' => ['bail', 'required', 'string', 'max:191'],
             'adresse1' => ['bail', 'required', 'string', 'max:191'],
-            'adresse2' => ['bail', 'string', 'max:191', 'min:0'],
+            'adresse2' => ['nullable','bail', 'string', 'max:191', 'min:0'],
             'ville' => ['bail', 'required', 'string', 'max:191'],
             'pays' => ['bail', 'required', 'string', 'max:191'],
             'prix_hors_saison' => ['bail', 'required', 'numeric'],
@@ -68,7 +68,7 @@ class MaisonsController extends Controller
     {
         $user_id=DB::table('maisons')->where('id',$id)->pluck('user_id');
         $maison=Maison::find($id);
-        $user=DB::table('users')->where('id',$user_id);
+        $user=DB::table('users')->where('id',$user_id)->first();
 
         return  view('house',[
             'maison' => $maison,

@@ -58,11 +58,28 @@
                 </div>
             </div>
             <div class="col-md">
-                {{ $maison -> name }}
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">{{$maison -> name}}</h3>
+                        <p class="card-text">{{$maison -> description}}</p>
+                        @if(empty($maison -> adresse2))
+                            <p class="card-text">{{$maison -> adresse1}}</p>
+                        @else
+                        <p class="card-text">{{$maison -> adresse1}}, {{$maison -> adresse2}}</p>
+                        @endif
+                        <p class="card-text">{{$maison -> ville}}, {{$maison -> pays}}</p>
+                        <p class="card-text">Hôte : {{ $user-> prenom}} {{ $user-> name}}</p>
+                        <p class="display-4 text-right">{{$maison -> prix_hors_saison}} €/Semaine</p>
+                        <a href="#" class="btn btn-primary">Reserver</a>
+                    </div>
+                </div>
             </div>
-            <div class="col">
-                
-            </div>
+        </div>
+        <div id="{{$maison -> id}}" style="display: none">
+            <form class="" method="POST">
+                @csrf
+                @method('put')
+            </form>
         </div>
     </div>
 @endsection
