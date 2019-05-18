@@ -26,7 +26,6 @@ class Maison extends Model
             'prix_saison' => request('prix_saison'),
             'description' => request('description'),
         ]);
-        
 
     }
 }

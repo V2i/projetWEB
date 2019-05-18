@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Maison;
+use App\User;
+use App\Photo;
 
 class PhotosController extends Controller
 {
@@ -11,9 +15,13 @@ class PhotosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        return view('photo');
+        $photos=DB::table('photos')->where('maison_id',$id)->get();
+        return view('photo', [
+            'photos' => $photos,
+            'maison_id' => $id,
+        ]);
     }
 
     /**
