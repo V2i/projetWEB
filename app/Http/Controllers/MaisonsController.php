@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Maison;
+use App\User;
 
 class MaisonsController extends Controller
 {
@@ -65,8 +66,10 @@ class MaisonsController extends Controller
     public function show($id)
     {
         $maison=Maison::find($id);
+        //$user=User::find($maison->user_id);
         return  view('house',[
             'maison' => $maison,
+            //'user' => $user,
         ]);
     }
 
@@ -78,7 +81,7 @@ class MaisonsController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('houseEdit');
     }
 
     /**

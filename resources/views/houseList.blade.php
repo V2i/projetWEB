@@ -19,7 +19,7 @@
                             <p class="card-text">{{ $house -> description }}</p>
                         </div>
                         <div class="card-footer">
-                            <small class="text-muted">Maison ajoutée par {{ $house -> user_id }}.</small>
+                            <small class="text-muted">{{ $house -> ville }}, en {{ $house -> pays }}</small>
                         </div>
                     </div>
                 </a>
