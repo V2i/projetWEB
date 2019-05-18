@@ -20,20 +20,18 @@ Auth::routes([
 ]);
 
 Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/houses', 'MaisonsController@index')->name('houses');
 Route::get('/house/{id}', 'MaisonsController@show')->name('house');
 
-
-
 Route::middleware('admin')->group(function(){
 
-    Route::get('/picture', 'PhotosController@index')->name('photo');
-    Route::get('/add', 'MaisonsController@create')->name('housecreate');
-    Route::post('/house', 'MaisonsController@store')->name('hstore');
+    Route::get('/add', 'MaisonsController@create')->name('houseCreate');
+    Route::post('/house', 'MaisonsController@store')->name('houseStore');
     Route::get('/admin', 'AdminsController@index')->name('admin');
-    Route::put('/admin', 'AdminsController@store')->name('adminstore');
-    Route::delete('/admin', 'AdminsController@destroy')->name('dadmin');
+    Route::put('/admin', 'AdminsController@store')->name('adminStore');
+    Route::delete('/admin', 'AdminsController@destroy')->name('adminDelete');
+    Route::put('/house/{id}/edit', 'MaisonsController@edit')->name('houseEdit');
+    Route::delete('/house/{id}/delete', 'MaisonsController@destroy')->name('houseDelete');
 });
 
 Route::fallback(function() {

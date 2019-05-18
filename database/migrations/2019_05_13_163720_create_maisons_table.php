@@ -14,6 +14,8 @@ class CreateMaisonsTable extends Migration
     public function up()
     {
         Schema::create('maisons', function (Blueprint $table) {
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->increments('id');
             $table->string('name');
             $table->string('adresse1');

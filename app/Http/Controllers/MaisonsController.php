@@ -99,8 +99,10 @@ class MaisonsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $maison = Maison::find(request('id'))->delete();
+        
+        return redirect()->route('houses');
     }
 }

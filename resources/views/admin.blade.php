@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">{{ __('Ajouter un admin') }}</div>
                         <div class="card-body">
-                            <form method="POST" action="{{ route('adminstore') }}">
+                            <form method="POST" action="{{ route('adminStore') }}">
                                 @csrf
                                 @method('put')
                                 <div class="form-group row">
@@ -55,7 +55,7 @@
                                     <td>{{ $admin -> name }}</td>
                                     <td>{{ $admin -> email }}</td>
                                     <td>
-                                        <form method="POST" action="{{ route('dadmin', ['id' => $admin -> id]) }}">
+                                        <form method="POST" action="{{ route('adminDelete', ['id' => $admin -> id]) }}">
                                             @csrf
                                             @method('delete')
                                             <button type="submit" class="btn btn-default"><i class="fas fa-trash-alt"></i></button>

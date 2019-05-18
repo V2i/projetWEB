@@ -57,3 +57,11 @@ a.custom-card:hover {
   color: inherit;
   text-decoration: none;
 }
+
+.update-form {
+    margin-top: 20px;
+}
+
+.cheat-div {
+    margin-bottom: 20px;
+}
