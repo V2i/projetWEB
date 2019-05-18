@@ -30,7 +30,7 @@ Route::middleware('admin')->group(function(){
     Route::get('/admin', 'AdminsController@index')->name('admin');
     Route::put('/admin', 'AdminsController@store')->name('adminStore');
     Route::delete('/admin', 'AdminsController@destroy')->name('adminDelete');
-    Route::put('/house/{id}/edit', 'MaisonsController@edit')->name('houseEdit');
+    Route::put('/house/{id}', 'MaisonsController@edit')->name('houseEdit');
     Route::delete('/house/{id}/delete', 'MaisonsController@destroy')->name('houseDelete');
     Route::get('/house/{id}/picture', 'PhotosController@index')->name('housePicture');
 });

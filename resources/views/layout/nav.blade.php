@@ -104,6 +104,7 @@
         <main>
             @include('layout.flash-message')
             @yield('content')
+
         </main>
         <!-- Footer -->
         <footer class="page-footer font-small pt-4">
@@ -147,5 +148,6 @@
         <!--copyright-->
         <div class="footer-copyright text-center py-3 bg-dark">© 2019 Copyright : V2i</div>
         </footer>
+        <script src="{{URL::asset('/js/custom.js')}}" type="text/javascript"></script>
     </body>
 </html>

@@ -82,7 +82,7 @@ class MaisonsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
         return view('houseEdit');
     }
