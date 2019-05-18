@@ -4,20 +4,28 @@
     <div class="container main-container">
         @auth
             @if(Auth::user()->admin === 1)
-                <form method="GET" action="{{ route('housePicture', ['id' => $maison -> id]) }}">
-                    @csrf
-                    <button type="submit" class="btn btn-primary btn-lg btn-block">Gerer les photos</button>
-                </form>
-                <form method="POST" action=" {{ route('houseEdit', ['id' => $maison -> id]) }}">
-                    @csrf
-                    @method('put')
-                    <button type="submit" class="btn btn-warning btn-lg btn-block">Modifier</button>
-                </form>
-                <form method="POST" action="{{ route('houseDelete', ['id' => $maison -> id]) }}">
-                    @csrf
-                    @method('delete')
-                    <button type="submit" class="btn btn-danger btn-lg btn-block">Supprimer</button>
-                </form>
+                <div class="row">
+                    <div class="col-md">
+                        <form method="GET" action="{{ route('housePicture', ['id' => $maison -> id]) }}">
+                            @csrf
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Gerer les photos</button>
+                        </form>
+                    </div>
+                    <div class="col-md">
+                        <form method="POST" action=" {{ route('houseEdit', ['id' => $maison -> id]) }}">
+                            @csrf
+                            @method('put')
+                            <button type="submit" class="btn btn-warning btn-lg btn-block">Modifier</button>
+                        </form>
+                    </div>
+                    <div class="col-md">
+                        <form method="POST" action="{{ route('houseDelete', ['id' => $maison -> id]) }}">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-danger btn-lg btn-block">Supprimer</button>
+                        </form>
+                    </div>
+                </div>
             @endif
         @endauth
         <div class="row">
@@ -53,7 +61,7 @@
                 {{ $maison -> name }}
             </div>
             <div class="col">
-       
+                
             </div>
         </div>
     </div>

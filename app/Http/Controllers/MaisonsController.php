@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Maison;
 use App\User;
 
@@ -65,11 +66,13 @@ class MaisonsController extends Controller
      */
     public function show($id)
     {
+        $user_id=DB::table('maisons')->where('id',$id)->pluck('user_id');
         $maison=Maison::find($id);
-        //$user=User::find($maison->user_id);
+        $user=DB::table('users')->where('id',$user_id);
+
         return  view('house',[
             'maison' => $maison,
-            //'user' => $user,
+            'user' => $user,
         ]);
     }
 
