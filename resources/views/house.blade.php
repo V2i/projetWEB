@@ -12,11 +12,7 @@
                         </form>
                     </div>
                     <div class="col-md">
-                        <form method="POST" action=" {{ route('houseEdit', ['id' => $maison -> id]) }}">
-                            @csrf
-                            @method('put')
-                            <button type="submit" class="btn btn-warning btn-lg btn-block">Modifier</button>
-                        </form>
+                    <button type="submit" class="btn btn-warning btn-lg btn-block" onclick="modal({{$maison->id}})">Modifier</button>
                     </div>
                     <div class="col-md">
                         <form method="POST" action="{{ route('houseDelete', ['id' => $maison -> id]) }}">
@@ -61,7 +57,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h3 class="card-title">{{$maison -> name}}</h3>
-                        <p class="card-text">{{$maison -> description}}</p>
+                        <p><h5 class="card-text">{{$maison -> description}}</h5></p>
                         @if(empty($maison -> adresse2))
                             <p class="card-text">{{$maison -> adresse1}}</p>
                         @else
@@ -76,10 +72,28 @@
             </div>
         </div>
         <div id="{{$maison -> id}}" style="display: none">
-            <form class="" method="POST">
-                @csrf
-                @method('put')
-            </form>
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Modification</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="" method="POST">
+                                @csrf
+                                @method('put')
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                            <button type="button" class="btn btn-primary">Sauvegarder</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
