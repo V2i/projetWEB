@@ -10,21 +10,25 @@
             @endif
         @endauth
         <div class="card-deck">
-            @foreach ($houses as $house)
-                <a href="{{ route('house', ['id' => $house -> id]) }}" class="custom-card" >
-                    <div class="card">
-                        <img class="card-img-top img-fluid" src="https://zupimages.net/up/19/20/233u.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title">{{ $house -> name }}</h4>
-                            <p class="card-text">{{ $house -> description }}</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">{{ $house -> ville }}, en {{ $house -> pays }}</small>
-                        </div>
+            <div class="row">
+                @foreach ($houses as $house)
+                    <div class="col-md-6">
+                        <a href="{{ route('house', ['id' => $house -> id]) }}" class="custom-card" >
+                            <div class="card">
+                                <img class="card-img-top img-fluid" src="https://zupimages.net/up/19/20/233u.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title">{{ $house -> name }}</h4>
+                                    <p class="card-text">{{ $house -> description }}</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">{{ $house -> ville }}, en {{ $house -> pays }}</small>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="cheat-div"></div>
                     </div>
-                </a>
-                <div class="cheat-div"></div>
-            @endforeach
+                @endforeach
+            </div>
         </div>
     </div>
 @endsection
