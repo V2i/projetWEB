@@ -135,7 +135,7 @@
                                 <a class="foot-link" href="#!"><i class="fab fa-facebook-square"></i></a>
                             </li>
                             <li>
-                                <a class="foot-link" href="#!"><i class="fab fa-instagram"></i></a>
+                                <a class="foot-link" href="https://www.instagram.com/homee4you/?hl=fr"><i class="fab fa-instagram"></i></a>
                             </li>
                             <li>
                                 <a class="foot-link" href="#!"><i class="fab fa-youtube"></i></a>
