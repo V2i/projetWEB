@@ -13,7 +13,7 @@
                                 <div class="form-group row">
                                     <label for="email" class="col-md-2 col-form-label text-md-right">{{ __('Adresse mel.') }}</label>
         
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autofocus>
         
                                         @error('email')
@@ -35,10 +35,10 @@
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <div class="table-responsive-md table table-striped">
                     <table class="table">
-                        <thead class="thead-dark">
+                        <thead>
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Prenom</th>

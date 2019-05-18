@@ -9,11 +9,21 @@
                 </form>
             @endif
         @endauth
-
-            <ul>
-                @foreach ($houses as $house)
-                    <li><a href="{{ route('house', ['id' => $house -> id]) }}" >{{ $house -> name }}</a></li>
-                @endforeach
-            </ul>
+        <div class="card-deck">
+            @foreach ($houses as $house)
+                <a href="{{ route('house', ['id' => $house -> id]) }}" class="custom-card" >
+                    <div class="card">
+                        <img class="card-img-top img-fluid" src="https://drive.google.com/drive/folders/1baiHsM9t0av6w4xsP7mx_Qdn1N5NcKyo" alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ $house -> name }}</h4>
+                            <p class="card-text">{{ $house -> description }}</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </div>
+                    </div>
+                </a>
+            @endforeach
+        </div>
     </div>
 @endsection
