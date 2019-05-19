@@ -254,9 +254,11 @@
 
   <!-- Contact Form JavaScript File -->
   <script src="{{URL::asset('/js/contactform.js')}}"></script>
+  <script src="{{secure_asset('/js/contactform.js')}}"></script>
 
   <!-- Template Main Javascript File -->
   <script src="{{URL::asset('/js/main.js')}}" type="text/javascript"></script>
+  <script src="{{secure_asset('/js/main.js')}}" type="text/javascript"></script>
 
 </body>
 </html>
