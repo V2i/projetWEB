@@ -36,7 +36,6 @@
         <link rel="stylesheet" href="{{secure_asset('css/custom.css')}}"> <!--heroku-->
         <link rel="stylesheet" href="{{URL::asset('css/custom.css')}}"> <!--local-->
         <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
-
     </head>
     <body>
         <header>
@@ -89,11 +88,11 @@
                                 <a class="nav-link" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Déconnexion') }}
+                                    <i class="fas fa-sign-out-alt"></i>
                                 </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
                             </li>
                         @endguest
                     </ul>
@@ -122,10 +121,10 @@
                             <a class="foot-link" href="{{route('welcome')}}">Page d'accueil</a>
                             </li>
                             <li>
-                                <a class="foot-link" href="#!">Nous contacter</a>
+                                <a class="foot-link" href="{{route('welcome')}}#contact">Nous contacter</a>
                             </li>
                             <li>
-                                <a class="foot-link" href="#!">A propos</a>
+                                <a class="foot-link" href="{{route('welcome')}}#about">A propos</a>
                             </li>
                         </ul>
                     </div>
