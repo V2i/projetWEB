@@ -34,6 +34,7 @@ Route::middleware('admin')->group(function(){
     Route::delete('/house/{id}/delete', 'MaisonsController@destroy')->name('houseDelete');
     Route::get('/house/{id}/picture', 'PhotosController@index')->name('housePicture');
     Route::post('/house/{id}/picture', 'PhotosController@store')->name('pictureStore');
+    Route::delete('/house/{id}/picture', 'PhotosController@destroy')->name('pictureDelete');
 });
 
 Route::fallback(function() {

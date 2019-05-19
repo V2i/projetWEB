@@ -15,12 +15,12 @@ class PhotosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index($maison_id)
     {
-        $photos=DB::table('photos')->where('maison_id',$id)->get();
+        $photos=DB::table('photos')->where('maison_id',$maison_id)->get();
         return view('photo', [
             'photos' => $photos,
-            'maison_id' => $id,
+            'maison_id' => $maison_id,
         ]);
     }
 
@@ -40,9 +40,17 @@ class PhotosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $maison_id)
     {
-        //
+        $data = request()->validate([
+            'url' => ['bail', 'required', 'url', 'string', 'max:191'],
+            'description' => ['bail', 'required', 'string', 'max:191'],
+        ]);
+
+        Photo::photoCreate($maison_id);
+        return redirect()->route('housePicture', [
+            'maison_id' => $maison_id,
+        ]);
     }
 
     /**
@@ -85,8 +93,12 @@ class PhotosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $photo = Photo::find(request('photo_id'))->delete();
+
+        return redirect()->route('photo',[
+            'maison_id' => request('maison_id'),
+        ]);
     }
 }

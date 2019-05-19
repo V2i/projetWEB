@@ -14,7 +14,7 @@ class Photo extends Model
         'maison_id', 'url', 'description'
     ];
 
-    public static function houseCreate($maison_id) {
+    public static function photoCreate($maison_id) {
         return self::create([
             'maison_id' => $maison_id,
             'url' => request('url'),
