@@ -33,15 +33,11 @@
                         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                     </ol>
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="https://zupimages.net/up/19/20/no7f.jpg" alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="https://zupimages.net/up/19/20/0bkw.jpg" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="https://zupimages.net/up/19/20/lq3s.jpg" alt="Third slide">
-                        </div>
+                        @foreach ($photos as $photo)
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="{{ $photo -> url }}" alt="{{ $photo -> type_photo }}">
+                            </div>
+                        @endforeach
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -81,7 +77,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form method="POST" action="{{ route('houseEdit', ['id' => $maison -> id]) }}">
+                        <form method="POST" action="{{ route('houseEdit', ['maison_id' => $maison -> id]) }}">
                             @csrf
                             @method('put')
                             <div class="form-group row">

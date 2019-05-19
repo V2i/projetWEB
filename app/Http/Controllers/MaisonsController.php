@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Maison;
 use App\User;
+use App\Photo;
+
 
 class MaisonsController extends Controller
 {
@@ -16,7 +18,8 @@ class MaisonsController extends Controller
      */
     public function index()
     {
-        $maisons = Maison::all();
+        $maisons=DB::table('maisons')->join('photos','maisons.id', '=', 'photos.maison_id')->where('type_photo', '=', 'photo principale')->get();
+        //$maisons=Maison::all();
 
         return view('houseList', [
             'houses' => $maisons,
@@ -66,13 +69,17 @@ class MaisonsController extends Controller
      */
     public function show($id)
     {
+        //$maison=DB::table('maisons')->where('id',$id)->join('users','maisons.user_id', '=', 'users.id')->first();
+        //$maison=DB::table('users')->join('maisons','users.id', '=', 'maisons.user_id')->first();
         $user_id=DB::table('maisons')->where('id',$id)->pluck('user_id');
         $maison=Maison::find($id);
-        $user=DB::table('users')->where('id',$user_id)->first();
+        $user=User::where('id',$user_id)->first();
+        $photos=Photo::where('id', $maison -> maison_id)->get();
 
         return  view('house',[
             'maison' => $maison,
             'user' => $user,
+            'photos' => $photos,
         ]);
     }
 
@@ -82,9 +89,22 @@ class MaisonsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, $id)
+    public function edit(Request $request)
     {
-        return view('houseEdit');
+        $maison = Maison::find(request('maison_id'))->update([
+            'name' => request('name'),
+            'adresse1' => request('adresse1'),
+            'adresse2' => request('adresse2'),
+            'ville' => request('ville'),
+            'pays' => request('pays'),
+            'prix_hors_saison' => request('prix_hors_saison'),
+            'prix_saison' => request('prix_saison'),
+            'description' => request('description'),
+        ]);
+
+        return  redirect()->route('house',[
+            'maison_id' => $maison_id,
+        ]);
     }
 
     /**

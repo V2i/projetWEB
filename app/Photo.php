@@ -11,14 +11,14 @@ class Photo extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'maison_id', 'url', 'description'
+        'maison_id', 'url', 'type_photo'
     ];
 
     public static function photoCreate($maison_id) {
         return self::create([
             'maison_id' => $maison_id,
             'url' => request('url'),
-            'description' => request('description'),
+            'type_photo' => request('type_photo'),
         ]);
 
     }

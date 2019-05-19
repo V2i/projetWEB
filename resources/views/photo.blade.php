@@ -23,12 +23,12 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="description" class="col-md-2 col-form-label text-md-right">{{ __('Description') }}</label>
+                                    <label for="type_photo" class="col-md-2 col-form-label text-md-right">{{ __('Type de photo') }}</label>
         
                                     <div class="col-md-6">
-                                        <input id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" required>
+                                        <input id="type_photo" type="text" class="form-control @error('type_photo') is-invalid @enderror" name="type_photo" value="{{ old('type_photo') }}" required>
         
-                                        @error('description')
+                                        @error('type_photo')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -55,12 +55,12 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="card-header border-0">
-                                    <img src="{{$photo -> url}}" alt="{{$photo -> description}}" class="d-block w-100">
+                                    <img src="{{$photo -> url}}" alt="Pas de photo disponible" class="d-block w-100">
                                 </div>
                             </div>
                             <div class="col-md-6 align-self-center text-center">
                                 <div class="card-block px-2">
-                                    <h3 class="card-title">{{$photo -> description}}</h3>
+                                    <h3 class="card-title">{{$photo -> type_photo}}</h3>
                                     <p class="card-text">{{$photo -> url}}</p>
                                     <form method="POST" action="{{ route('pictureDelete', ['maison_id' => $maison_id, 'photo_id' => $photo -> id]) }}">
                                         @csrf

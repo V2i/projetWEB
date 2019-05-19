@@ -13,9 +13,9 @@
             <div class="row">
                 @foreach ($houses as $house)
                     <div class="col-md-6">
-                        <a href="{{ route('house', ['id' => $house -> id]) }}" class="custom-card" >
+                        <a href="{{ route('house', ['id' => $house -> maison_id]) }}" class="custom-card" >
                             <div class="card">
-                                <img class="card-img-top img-fluid" src="https://zupimages.net/up/19/20/233u.jpg" alt="Card image cap">
+                            <img class="card-img-top img-fluid" src="{{ $house -> url }}" alt="Pas d'image disponible">
                                 <div class="card-body">
                                     <h4 class="card-title">{{ $house -> name }}</h4>
                                     <p class="card-text">{{ $house -> description }}</p>
