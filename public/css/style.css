@@ -501,9 +501,10 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #about .about-container .background {
-  min-height: 300px;
-  background: url(../img/about-img.jpg) center top no-repeat;
+  max-width: 80%;
+  background: url(../img/about-img.jpg);
   margin-bottom: 10px;
+  background-size: cover;
 }
 
 #about .about-container .content {

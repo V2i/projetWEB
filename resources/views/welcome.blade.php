@@ -122,7 +122,7 @@
           <div class="col-lg-6 content order-lg-1 order-2">
             <h2 class="title">Quelques mots à propos de nous</h2>
             <p>
-                    Je m'appelle Valentin Guyon, je suis élève ingénieur en informatique et gestion à Polytech Montpellier. J'ai developpé cette application dans le cadre d'un projet scolaire. Grâce à House4you vous trouverez la maison de vos rêves pour des vacances parfaites.
+                    Je m'appelle Valentin Guyon, je suis élève ingénieur en informatique et gestion à Polytech Montpellier. J'ai developpé cette application dans le cadre d'un projet scolaire et personnel. Grâce à House4you vous trouverez la maison de vos rêves pour des vacances parfaites.
             </p>
 
             <div class="icon-box wow fadeInUp">
@@ -145,7 +145,7 @@
 
           </div>
 
-          <div class="col-lg-6 background order-lg-2 order-1 wow fadeInRight"></div>
+          <div class="col-lg-6 background order-lg-2 order-1 wow fadeInRight img-fluid"></div>
         </div>
 
       </div>
