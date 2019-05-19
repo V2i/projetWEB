@@ -34,11 +34,13 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
   <!-- Bootstrap CSS File -->
+  <link rel="stylesheet" href="{{secure_asset('lib/bootstrap/css/bootstrap.min.css')}}"> <!--heroku-->
   <link rel="stylesheet" href="{{URL::asset('lib/bootstrap/css/bootstrap.min.css')}}"> <!--local-->
 
   <!-- Libraries CSS Files -->
   <link rel="stylesheet" href="{{secure_asset('lib/font-awesome/css/font-awesome.min.css')}}"> <!--heroku-->
   <link rel="stylesheet" href="{{URL::asset('lib/font-awesome/css/font-awesome.min.css')}}"> <!--local-->
+  <link rel="stylesheet" href="{{secure_asset('lib/animate/animate.min.css')}}"> <!--heroku-->
   <link rel="stylesheet" href="{{URL::asset('lib/animate/animate.min.css')}}"> <!--local-->
 
   <!-- Main Stylesheet File -->

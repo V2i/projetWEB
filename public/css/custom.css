@@ -48,7 +48,8 @@ body {
     text-decoration: none;
 }
 
-.fa-trash-alt:hover{
+.fa-trash-alt:hover,
+.fa-sign-out-alt:hover{
     color: red;
 }
 

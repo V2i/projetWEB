@@ -501,10 +501,11 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #about .about-container .background {
-  max-width: 80%;
+  max-width: 60%;
   background: url(../img/about-img.jpg);
   margin-bottom: 10px;
   background-size: cover;
+  background-position: center;
 }
 
 #about .about-container .content {
