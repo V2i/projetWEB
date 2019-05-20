@@ -3,7 +3,7 @@
 @section('content')
     <div class="container main-container">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">{{ __('Ajouter une maison') }}</div>
             
@@ -116,7 +116,7 @@
                                 </div>
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6 offset-md-4">
-                                        <button type="submit" class="btn btn-primary">
+                                        <button type="submit" class="btn btn-primary btn-block">
                                             {{ __('Ajouter') }}
                                         </button>
                                     </div>

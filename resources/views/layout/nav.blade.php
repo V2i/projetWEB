@@ -148,5 +148,6 @@
         <div class="footer-copyright text-center py-3 bg-dark">© 2019 Copyright : V2i</div>
         </footer>
         <script src="{{URL::asset('/js/custom.js')}}" type="text/javascript"></script>
+        <script src="{{secure_asset('/js/custom.js')}}" type="text/javascript"></script>
     </body>
 </html>
