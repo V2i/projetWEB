@@ -22,18 +22,23 @@ Auth::routes([
 Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/home', 'UsersController@update')->name('userUpdate');
 // Route::get('/welcome', 'UsersController@destroy')->name('userDelete');
+
 Route::get('/houses', 'MaisonsController@index')->name('houses');
 Route::get('/house/{id}', 'MaisonsController@show')->name('house');
 
+Route::get('/house/{id}/reservation', 'ReservationsController@create')->name('reservationForm');
+
 Route::middleware('admin')->group(function(){
 
-    Route::get('/add', 'MaisonsController@create')->name('houseCreate');
-    Route::post('/house', 'MaisonsController@store')->name('houseStore');
     Route::get('/admin', 'AdminsController@index')->name('admin');
     Route::put('/admin', 'AdminsController@store')->name('adminStore');
     Route::delete('/admin', 'AdminsController@destroy')->name('adminDelete');
+
+    Route::get('/add', 'MaisonsController@create')->name('houseCreate');
+    Route::post('/house', 'MaisonsController@store')->name('houseStore');
     Route::put('/house/{id}', 'MaisonsController@edit')->name('houseEdit');
     Route::delete('/house/{id}/delete', 'MaisonsController@destroy')->name('houseDelete');
+
     Route::get('/house/{id}/picture', 'PhotosController@index')->name('housePicture');
     Route::post('/house/{id}/picture', 'PhotosController@store')->name('pictureStore');
     Route::delete('/house/{id}/picture', 'PhotosController@destroy')->name('pictureDelete');

@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Maison;
+use App\User;
+use App\Photo;
+use App\Reservation;
 
 class ReservationsController extends Controller
 {
@@ -21,9 +26,11 @@ class ReservationsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        return view('bookForm', [
+            'maison_id' => request('maison_id'),
+        ]);
     }
 
     /**

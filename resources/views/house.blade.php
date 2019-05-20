@@ -25,7 +25,7 @@
             @endif
         @endauth
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 align-self-stretch">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                         @foreach ($photos as $photo)
@@ -62,7 +62,7 @@
                         <p class="card-text">{{$maison -> ville}}, {{$maison -> pays}}</p>
                         <p class="card-text">Hôte : {{ $user-> prenom}} {{ $user-> name}}</p>
                         <p class="display-4 text-right">{{$maison -> prix_hors_saison}} €/Semaine</p>
-                        <a href="#" class="btn btn-primary">Reserver</a>
+                        <a href="{{route('reservationForm', [ 'maison_id' => $maison -> id])}}" class="btn btn-primary">Reserver</a>
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form method="POST" action="{{ route('houseEdit', ['maison_id' => $maison -> id]) }}">
+                        <form method="POST" action="{{ route('houseEdit', ['maison_id' => $maison -> id])}}">
                             @csrf
                             @method('put')
                             <div class="form-group row">

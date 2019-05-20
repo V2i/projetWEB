@@ -35,7 +35,9 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
         <link rel="stylesheet" href="{{secure_asset('css/custom.css')}}"> <!--heroku-->
         <link rel="stylesheet" href="{{URL::asset('css/custom.css')}}"> <!--local-->
+        <link rel="stylesheet" href="{{URL::asset('css/daterangepicker.css')}}"> <!--local-->
         <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+
     </head>
     <body>
         <header>
