@@ -95,10 +95,12 @@ class PhotosController extends Controller
      */
     public function destroy(Request $request)
     {
-        $photo = Photo::find(request('photo_id'))->delete();
+        $id = $request->input('id');
+        $maison_id = $request->input('maison_id');
+        Photo::find($id)->delete();
 
-        return redirect()->route('photo',[
-            'maison_id' => request('maison_id'),
+        return redirect()->route('housePicture',[
+            'maison_id' => $maison_id,
         ]);
     }
 }

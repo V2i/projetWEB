@@ -63,6 +63,8 @@
                                                         <form method="POST" action="{{ route('pictureDelete', ['id' => $photo -> id]) }}">
                                                             @csrf
                                                             @method('delete')
+                                                            <input type="hidden" value="{{$photo -> id}}" name="id">
+                                                            <input type="hidden" value="{{$photo -> maison_id}}" name="maison_id">
                                                             <button type="submit" class="btn btn-default"><i class="fas fa-trash-alt"></i></button>
                                                         </form>
                                                     </div>

@@ -110,7 +110,12 @@ class ReservationsController extends Controller
     {
         $id = $request->input('id');
         Reservation::find($id)->delete();
+
+        if(user()->admin == 0) {
+            return redirect()->route('reservation');
+        } else {
+            return redirect()->route('adminReservation');
+        }
         
-        return redirect()->route('reservation');
     }
 }
