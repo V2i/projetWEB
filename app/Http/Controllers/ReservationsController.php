@@ -18,7 +18,14 @@ class ReservationsController extends Controller
      */
     public function index()
     {
-        //
+        //$reservations=DB::table('reservations')->where('user_id',auth()->id())->orderBy('maison_id','desc')->get();
+        $reservations=DB::table('maisons')
+            ->join('photos','maisons.id', '=', 'photos.maison_id')
+            ->where('type_photo', '=', 'photo principale')
+            ->join('reservations', 'maisons.id', '=', 'reservations.maison_id')
+            ->where('reservations.user_id', auth()->id())
+            ->orderBy('reservations.maison_id','desc')->get();
+        return view('reservation', ['reservations' => $reservations]);
     }
 
     /**
@@ -26,11 +33,9 @@ class ReservationsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create($maison_id)
     {
-        return view('bookForm', [
-            'maison_id' => request('maison_id'),
-        ]);
+        return view('bookForm', ['maison_id' => $maison_id]);
     }
 
     /**
@@ -41,7 +46,13 @@ class ReservationsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate([
+            'date_debut' => ['bail', 'required'],
+            'date_fin' => ['bail', 'required'],
+        ]);
+        
+        $reservation = Reservation::reservationCreate();
+        return redirect()->route('reservation');
     }
 
     /**
@@ -84,8 +95,10 @@ class ReservationsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        Reservation::find(request('id'))->delete();
+        
+        return redirect()->route('reservations');
     }
 }

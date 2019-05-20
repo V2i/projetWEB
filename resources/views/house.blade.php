@@ -7,7 +7,6 @@
                 <div class="row">
                     <div class="col-md">
                         <form method="GET" action="{{ route('housePicture', ['id' => $maison -> id]) }}">
-                            @csrf
                             <button type="submit" class="btn btn-primary btn-lg btn-block">Gerer les photos</button>
                         </form>
                     </div>
@@ -62,7 +61,11 @@
                         <p class="card-text">{{$maison -> ville}}, {{$maison -> pays}}</p>
                         <p class="card-text">Hôte : {{ $user-> prenom}} {{ $user-> name}}</p>
                         <p class="display-4 text-right">{{$maison -> prix_hors_saison}} €/Semaine</p>
-                        <a href="{{route('reservationForm', [ 'maison_id' => $maison -> id])}}" class="btn btn-primary">Reserver</a>
+                        @auth
+                            <a href="{{route('reservationForm', [ 'maison_id' => $maison -> id])}}" class="btn btn-primary">Réserver</a>
+                        @else
+                            <a href="{{route('login')}}" class="btn btn-primary">Connectez-vous pour réserver</a>
+                        @endauth
                     </div>
                 </div>
             </div>

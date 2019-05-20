@@ -11,13 +11,13 @@ class Reservation extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'date_debut', 'date_fin'
+        'maison_id', 'user_id', 'date_debut', 'date_fin',
     ];
 
-    public static function reservationCreate($maison_id, $user_id) {
+    public static function reservationCreate() {
         return self::create([
-            'maison_id' => $maison_id,
-            'user_id' => $user_id,
+            'maison_id' => request('maison_id'),
+            'user_id' => auth() -> id(),
             'date_debut' => request('date_debut'),
             'date_fin' => request('date_fin'),
         ]);

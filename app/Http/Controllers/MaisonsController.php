@@ -71,7 +71,8 @@ class MaisonsController extends Controller
     {
         //$maison=DB::table('maisons')->where('id',$id)->join('users','maisons.user_id', '=', 'users.id')->first();
         //$maison=DB::table('users')->join('maisons','users.id', '=', 'maisons.user_id')->first();
-        $user_id=DB::table('maisons')->where('id',$id)->pluck('user_id');        $maison=Maison::find($id);
+        $user_id=DB::table('maisons')->where('id',$id)->pluck('user_id');
+        $maison=Maison::find($id);
         $user=User::where('id',$user_id)->first();
         $photos=Photo::where('maison_id', $id)->get();
 

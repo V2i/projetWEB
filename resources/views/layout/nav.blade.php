@@ -65,6 +65,9 @@
                                     <a class="nav-link" href="{{ route('admin') }}">Admin</a>
                                 </li>
                             @endif
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('reservation') }}">Réservation</a>
+                            </li>
                         @endauth
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('houses') }}">Maisons</a>

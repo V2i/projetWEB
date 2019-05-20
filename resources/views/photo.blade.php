@@ -60,7 +60,7 @@
                                                     <div class="card-block px-2">
                                                         <h3 class="card-title">{{$photo -> type_photo}}</h3>
                                                         <p class="card-text">{{$photo -> url}}</p>
-                                                        <form method="POST" action="{{ route('pictureDelete', ['maison_id' => $maison_id, 'photo_id' => $photo -> id]) }}">
+                                                        <form method="POST" action="{{ route('pictureDelete', ['id' => $photo -> id]) }}">
                                                             @csrf
                                                             @method('delete')
                                                             <button type="submit" class="btn btn-default"><i class="fas fa-trash-alt"></i></button>

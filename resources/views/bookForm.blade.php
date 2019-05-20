@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">{{ __('Réservation') }}</div>
                         <div class="card-body">
-                            <form method="POST" action="{{ route('houseStore') }}">
+                            <form method="POST" action="{{ route('reservationStore', ['maison_id' => $maison_id ]) }}">
                                 @csrf
                                 <div class="form-group row justify-content-center">
                                     <label for="date_debut" class="col-md-2 col-form-label text-md-right">{{ __('Date de début') }}</label>

@@ -20,13 +20,16 @@ Auth::routes([
 ]);
 
 Route::get('/home', 'HomeController@index')->name('home');
-// Route::get('/home', 'UsersController@update')->name('userUpdate');
-// Route::get('/welcome', 'UsersController@destroy')->name('userDelete');
+// Route::post('/home', 'UsersController@update')->name('userUpdate');
+// Route::post('/welcome', 'UsersController@destroy')->name('userDelete');
 
 Route::get('/houses', 'MaisonsController@index')->name('houses');
 Route::get('/house/{id}', 'MaisonsController@show')->name('house');
 
-Route::get('/house/{id}/reservation', 'ReservationsController@create')->name('reservationForm');
+Route::get('/house/{id}/reservation', 'ReservationsController@create')->name('reservationForm')->middleware('auth');
+Route::get('/reservations', 'ReservationsController@index')->name('reservation')->middleware('auth');
+Route::post('/reservations', 'ReservationsController@store')->name('reservationStore')->middleware('auth');
+Route::delete('/reservations', 'ReservationsController@destroy')->name('reservationDelete')->middleware('auth');
 
 Route::middleware('admin')->group(function(){
 

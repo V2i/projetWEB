@@ -44,7 +44,7 @@ class PhotosController extends Controller
     {
         $data = request()->validate([
             'url' => ['bail', 'required', 'url', 'string', 'max:191'],
-            'type_photo' => ['bail', 'required', 'string', 'max:191'],
+            'type-photo' => ['bail', 'required', 'string', 'max:191'],
         ]);
 
         Photo::photoCreate($maison_id);
@@ -97,7 +97,7 @@ class PhotosController extends Controller
     {
         $photo = Photo::find(request('photo_id'))->delete();
 
-        return redirect()->route('housePicture',[
+        return redirect()->route('photo',[
             'maison_id' => request('maison_id'),
         ]);
     }
