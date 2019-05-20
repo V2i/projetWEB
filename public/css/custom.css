@@ -62,3 +62,17 @@ a.custom-card:hover {
 .cheat-div {
     margin-bottom: 20px;
 }
+
+.dropdown-item:hover {
+    background-color: #343a40;
+    color: white;
+}
+
+.dropdown-item {
+    background-color: #343a40;
+    color: lightgray;
+}
+
+.dropdown-menu{
+    border: none;
+}

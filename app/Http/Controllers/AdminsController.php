@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\User;
 
 class AdminsController extends Controller
@@ -97,5 +98,31 @@ class AdminsController extends Controller
         ]);
         
         return redirect()->route('admin');
+    }
+
+    /**
+     * Show all the reservations to super user
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function reservationsAdmin()
+    {
+        $reservations=DB::table('maisons')
+            ->join('photos','maisons.id', '=', 'photos.maison_id')
+            ->where('type_photo', '=', 'photo principale')
+            ->join('reservations', 'maisons.id', '=', 'reservations.maison_id')
+            ->orderBy('reservations.user_id','desc')->get();
+        
+        $count=DB::table('maisons')
+            ->join('photos','maisons.id', '=', 'photos.maison_id')
+            ->where('type_photo', '=', 'photo principale')
+            ->join('reservations', 'maisons.id', '=', 'reservations.maison_id')
+            ->orderBy('reservations.user_id','desc')->count();
+        
+        return view('reservationAdmin', [
+            'reservations' => $reservations,
+            'count' => $count,
+        ]);
     }
 }

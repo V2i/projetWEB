@@ -61,12 +61,18 @@
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         @auth
                             @if(Auth::user()->admin === 1)
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin') }}">Admin</a>
-                                </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Commandes
+                                </a>
+                                <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('admin') }}">Admin</a>
+                                    <a class="dropdown-item" href="{{ route('adminReservation') }}">Réservations</a>
+                                </div>
+                            </li>
                             @endif
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('reservation') }}">Réservation</a>
+                                <a class="nav-link" href="{{ route('reservation') }}">Réservations</a>
                             </li>
                         @endauth
                         <li class="nav-item">

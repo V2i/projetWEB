@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Vous avez actuellement {{$count}} réservations.</div>
+                    <div class="card-header">Il y a actuellement {{$count}} réservations sur le site.</div>
                         <div class="card-body">
                             <div class="row justify-content-center">
                                 <div class="col-md-12">

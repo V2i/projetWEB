@@ -36,6 +36,7 @@ Route::middleware('admin')->group(function(){
     Route::get('/admin', 'AdminsController@index')->name('admin');
     Route::put('/admin', 'AdminsController@store')->name('adminStore');
     Route::delete('/admin', 'AdminsController@destroy')->name('adminDelete');
+    Route::get('/admin/reservations', 'AdminsController@reservationsAdmin')->name('adminReservation');
 
     Route::get('/add', 'MaisonsController@create')->name('houseCreate');
     Route::post('/house', 'MaisonsController@store')->name('houseStore');
@@ -45,6 +46,7 @@ Route::middleware('admin')->group(function(){
     Route::get('/house/{id}/picture', 'PhotosController@index')->name('housePicture');
     Route::post('/house/{id}/picture', 'PhotosController@store')->name('pictureStore');
     Route::delete('/house/{id}/picture', 'PhotosController@destroy')->name('pictureDelete');
+
 });
 
 Route::fallback(function() {

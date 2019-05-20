@@ -25,7 +25,18 @@ class ReservationsController extends Controller
             ->join('reservations', 'maisons.id', '=', 'reservations.maison_id')
             ->where('reservations.user_id', auth()->id())
             ->orderBy('reservations.maison_id','desc')->get();
-        return view('reservation', ['reservations' => $reservations]);
+
+        $count=DB::table('maisons')
+            ->join('photos','maisons.id', '=', 'photos.maison_id')
+            ->where('type_photo', '=', 'photo principale')
+            ->join('reservations', 'maisons.id', '=', 'reservations.maison_id')
+            ->where('reservations.user_id', auth()->id())
+            ->orderBy('reservations.maison_id','desc')->count();
+        
+        return view('reservation', [
+            'reservations' => $reservations,
+            'count' => $count,
+        ]);
     }
 
     /**
@@ -97,8 +108,9 @@ class ReservationsController extends Controller
      */
     public function destroy(Request $request)
     {
-        Reservation::find(request('id'))->delete();
+        $id = $request->input('id');
+        Reservation::find($id)->delete();
         
-        return redirect()->route('reservations');
+        return redirect()->route('reservation');
     }
 }
