@@ -45,7 +45,7 @@ class MaisonsController extends Controller
     public function store(Request $request)
     {
         $data = request()->validate([
-            'name' => ['bail', 'required', 'string', 'max:191'],
+            'titre' => ['bail', 'required', 'string', 'max:191'],
             'adresse1' => ['bail', 'required', 'string', 'max:191'],
             'adresse2' => ['nullable','bail', 'string', 'max:191', 'min:0'],
             'ville' => ['bail', 'required', 'string', 'max:191'],
@@ -92,7 +92,7 @@ class MaisonsController extends Controller
     public function edit(Request $request)
     {
         $maison = Maison::find(request('maison_id'))->update([
-            'name' => request('name'),
+            'titre' => request('titre'),
             'adresse1' => request('adresse1'),
             'adresse2' => request('adresse2'),
             'ville' => request('ville'),

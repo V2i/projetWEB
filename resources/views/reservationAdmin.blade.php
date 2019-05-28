@@ -20,8 +20,8 @@
                                                 </div>
                                                 <div class="col-md-6 align-self-center text-center">
                                                     <div class="card-block px-2">
-                                                        <h3 class="card-title">{{$reservation -> name}}</h3>
-                                                        <p class="card-text">{{$reservation -> description}}</p>
+                                                        <h3 class="card-title">{{$reservation -> titre}}</h3>
+                                                        <p class="card-text">Réservé par : {{$reservation -> prenom}} {{$reservation -> name}}, {{$reservation -> email}}</p>
                                                         <p class="card-text">Du : {{$reservation -> date_debut}} au {{$reservation -> date_fin}}.</p>
                                                         <form method="POST" action="{{route('reservationDelete')}}">
                                                             @csrf

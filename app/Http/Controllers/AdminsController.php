@@ -103,7 +103,7 @@ class AdminsController extends Controller
     /**
      * Show all the reservations to super user
      *
-     * @param  int  $id
+     * 
      * @return \Illuminate\Http\Response
      */
     public function reservationsAdmin()
@@ -112,6 +112,7 @@ class AdminsController extends Controller
             ->join('photos','maisons.id', '=', 'photos.maison_id')
             ->where('type_photo', '=', 'photo principale')
             ->join('reservations', 'maisons.id', '=', 'reservations.maison_id')
+            ->join('users', 'users.id', '=', 'reservations.user_id')
             ->orderBy('reservations.user_id','desc')->get();
         
         $count=DB::table('maisons')
