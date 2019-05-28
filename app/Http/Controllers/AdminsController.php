@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Maison;
 use App\User;
+use App\Photo;
+use App\Reservation;
 
 class AdminsController extends Controller
 {
@@ -125,5 +128,19 @@ class AdminsController extends Controller
             'reservations' => $reservations,
             'count' => $count,
         ]);
+    }
+
+    /**
+     * allow super user to delete a reservation
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function deleteReservationAdmin(Request $request)
+    {
+        $id = $request->input('id');
+        Reservation::find($id)->delete();
+
+        return redirect()->route('adminReservation');
     }
 }

@@ -37,6 +37,7 @@ Route::middleware('admin')->group(function(){
     Route::put('/admin', 'AdminsController@store')->name('adminStore');
     Route::delete('/admin', 'AdminsController@destroy')->name('adminDelete');
     Route::get('/admin/reservations', 'AdminsController@reservationsAdmin')->name('adminReservation');
+    Route::delete('/admin/reservations', 'AdminsController@deleteReservationAdmin')->name('adminReservationDelete');
 
     Route::get('/add', 'MaisonsController@create')->name('houseCreate');
     Route::post('/house', 'MaisonsController@store')->name('houseStore');

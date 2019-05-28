@@ -11,12 +11,12 @@
                             <form method="POST" action="{{ route('houseStore') }}">
                                 @csrf
                                 <div class="form-group row">
-                                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nom de la maison') }}</label>
+                                    <label for="titre" class="col-md-4 col-form-label text-md-right">{{ __('Nom de la maison') }}</label>
         
                                     <div class="col-md-6">
-                                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                        <input id="titre" type="text" class="form-control @error('titre') is-invalid @enderror" name="titre" value="{{ old('titre') }}" required autocomplete="titre" autofocus>
         
-                                        @error('name')
+                                        @error('titre')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>

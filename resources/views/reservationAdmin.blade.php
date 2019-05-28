@@ -23,7 +23,7 @@
                                                         <h3 class="card-title">{{$reservation -> titre}}</h3>
                                                         <p class="card-text">Réservé par : {{$reservation -> prenom}} {{$reservation -> name}}, {{$reservation -> email}}</p>
                                                         <p class="card-text">Du : {{$reservation -> date_debut}} au {{$reservation -> date_fin}}.</p>
-                                                        <form method="POST" action="{{route('reservationDelete')}}">
+                                                        <form method="POST" action="{{route('adminReservationDelete')}}">
                                                             @csrf
                                                             @method('delete')
                                                             <input type="hidden" value="{{$reservation -> id}}" name="id">

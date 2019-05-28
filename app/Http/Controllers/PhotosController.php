@@ -43,8 +43,8 @@ class PhotosController extends Controller
     public function store(Request $request, $maison_id)
     {
         $data = request()->validate([
-            'url' => ['bail', 'required', 'url', 'string', 'max:191'],
-            'type-photo' => ['bail', 'required', 'string', 'max:191'],
+            'url' => ['bail', 'required', 'string', 'max:191'],
+            'type_photo' => ['bail', 'required', 'string', 'max:191'],
         ]);
 
         Photo::photoCreate($maison_id);

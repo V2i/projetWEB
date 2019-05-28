@@ -91,7 +91,7 @@ class MaisonsController extends Controller
      */
     public function edit(Request $request)
     {
-        $maison = Maison::find(request('maison_id'))->update([
+        $maison = Maison::find(request('id'))->update([
             'titre' => request('titre'),
             'adresse1' => request('adresse1'),
             'adresse2' => request('adresse2'),
@@ -103,7 +103,7 @@ class MaisonsController extends Controller
         ]);
 
         return  redirect()->route('house',[
-            'maison_id' => $maison_id,
+            'maison_id' => request('id'),
         ]);
     }
 
